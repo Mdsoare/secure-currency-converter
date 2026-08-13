@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" 
+          content="default-src 'self'; connect-src https://economia.awesomeapi.com.br; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self';">
+    <title>Conversor de Moedas Seguro</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src="./assets/js/app.js" defer></script>
+</head>
+<body>
+
+    <main class="container">
+        <h1>Câmbio Seguro</h1>
+        <p class="subtitle">Conversão em tempo real sem rastreamento de dados</p>
+
+        <div class="error-box" id="errorBox" role="alert" aria-live="assertive"></div>
+
+        <div class="input-group">
+            <label for="amount">Valor a converter:</label>
+            <div class="input-wrapper">
+                <input type="number" id="amount" value="100.00" min="0" step="0.01" max="99999999" placeholder="0.00">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="currencyPair">Selecione o par de conversão:</label>
+            <select id="currencyPair">
+                <option value="USD-BRL">Dólar Americano (USD) para Real (BRL)</option>
+                <option value="EUR-BRL">Euro (EUR) para Real (BRL)</option>
+                <option value="GBP-BRL">Libra Esterlina (GBP) para Real (BRL)</option>
+                <option value="BRL-USD">Real (BRL) para Dólar Americano (USD)</option>
+                <option value="BRL-EUR">Real (BRL) para Euro (EUR)</option>
+                <option value="BTC-BRL">Bitcoin (BTC) para Real (BRL)</option>
+            </select>
+        </div>
+
+        <div class="loader" id="loader" aria-live="polite">Buscando cotações seguras...</div>
+
+        <div class="result-box" id="resultBox">
+            <div class="result-val" id="resultValue">R$ 0,00</div>
+            <div class="result-rate" id="resultRate">1 USD = R$ 0,0000</div>
+        </div>
+
+        <section class="quick-rates">
+            <h3>Visão Geral do Câmbio comercial atual</h3>
+            <div id="quickRatesContainer">
+                <div class="rate-row"><span>USD / BRL</span><strong id="rate-USD-BRL">---</strong></div>
+                <div class="rate-row"><span>EUR / BRL</span><strong id="rate-EUR-BRL">---</strong></div>
+                <div class="rate-row"><span>GBP / BRL</span><strong id="rate-GBP-BRL">---</strong></div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
