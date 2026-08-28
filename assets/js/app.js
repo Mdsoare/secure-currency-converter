@@ -95,8 +95,6 @@ async function calculateConversion() {
         const convertedValue = amount * rate;
 
         const toConfig = CURRENCY_LOCALES[toCurrency] || { locale: 'pt-BR', currency: toCurrency };
-        const fromConfig = CURRENCY_LOCALES[fromCurrency] || { locale: 'en-US', currency: fromCurrency };
-
         const formatterTo = new Intl.NumberFormat(toConfig.locale, { style: 'currency', currency: toConfig.currency });
 
         // Atualização segura do DOM com textContent (Prevenção de XSS)
@@ -106,7 +104,7 @@ async function calculateConversion() {
         resultBox.style.display = 'block';
     } catch (err) {
         if (err.name === 'AbortError') return; // Requisição cancelada intencionalmente
-        
+
         console.error('Erro na conversão:', err);
         showError('Não foi possível obter a cotação. Verifique sua conexão ou tente novamente.');
         resultBox.style.display = 'none';
@@ -129,7 +127,7 @@ async function fetchQuickRates() {
         if (data.USDBRL) document.getElementById('rate-USD-BRL').textContent = brlFormatter.format(data.USDBRL.bid);
         if (data.EURBRL) document.getElementById('rate-EUR-BRL').textContent = brlFormatter.format(data.EURBRL.bid);
         if (data.GBPBRL) document.getElementById('rate-GBP-BRL').textContent = brlFormatter.format(data.GBPBRL.bid);
-    } catch (e) {
+    } catch {
         console.warn('Falha silenciosa ao carregar painel de cotações rápidas.');
     }
 }

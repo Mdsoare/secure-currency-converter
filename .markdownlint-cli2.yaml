@@ -1,0 +1,16 @@
+# Configuração do markdownlint-cli2
+config:  
+  MD013: false # Ignora comprimento de linha
+  MD022: false # Ignora espaçamento de títulos
+  MD024: false # Permite títulos duplicados se estiverem em seções diferentes
+  MD031: false # Ignora espaçamento de blocos de código
+  MD033:
+    allowed_elements:
+      - "div"  # Permite o uso da tag <div> para centralização
+  MD041: false # Desativa a exigência de que o arquivo inicie com H1
+  MD047: false # Ignora exigência de quebra de linha no fim do arquivo
+    
+# Ignorar pastas de sistema ou dependências
+ignores:
+  - "node_modules"
+  - "LICENSE"

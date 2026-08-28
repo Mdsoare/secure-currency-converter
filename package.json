@@ -1,0 +1,30 @@
+{
+  "name": "secure-currency-converter",
+  "version": "1.0.0",
+  "description": "![License](https://img.shields.io/badge/license-MIT-green.svg) ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg) ![Security-CSP](https://img.shields.io/badge/Security-CSP%20Hardened-blue.svg) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) ![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-222222?style=flat&logo=github)",
+  "main": "assets/js/app.js",
+  "type": "module",
+  "scripts": {
+    "lint:html": "htmlhint index.html",
+    "lint:css": "stylelint \"assets/css/**/*.css\"",
+    "lint:js": "eslint \"assets/js/**/*.js\"",
+    "lint:md": "markdownlint-cli2 \"**/*.md\"",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js && npm run lint:md",
+    "lint:css:fix": "stylelint \"assets/css/**/*.css\" --fix",
+    "lint:js:fix": "eslint \"assets/js/**/*.js\" --fix",
+    "lint:md:fix": "markdownlint-cli2 --fix \"**/*.md\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Marcelo Soares",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.9.1",
+    "globals": "^17.11.0",
+    "htmlhint": "^1.9.2",
+    "markdownlint-cli2": "^0.23.2",
+    "stylelint": "^17.14.1",
+    "stylelint-config-standard": "^40.0.0"
+  }
+}

@@ -1,11 +1,15 @@
 # 🔀 Câmbio Seguro — Conversor de Moedas
 
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
-![Security-CSP](https://img.shields.io/badge/Security-CSP%20Hardened-blue.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Security](https://img.shields.io/badge/Security-CSP_Compliant-success)](SECURITY)
+
+<!-- Badges das Linguagens e Ecossistema -->
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![Security-CSP](https://img.shields.io/badge/Security-CSP%20Hardened-blue.svg)
 ![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-222222?style=flat&logo=github)
 
 > **Aplicação web estática (SPA - Single Page Application) para conversão de moedas em tempo real, desenvolvida com foco em arquitetura limpa e princípios de AppSec / DevSecOps.**
@@ -20,12 +24,17 @@
 
 ## 🚀 Funcionalidades
 
-* **Conversão em Tempo Real:** Suporte a múltiplos pares de moedas (USD, EUR, GBP, BRL, BTC) consumindo a [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas).
-* **Painel de Cotações Rápidas:** Visão geral dinâmica do câmbio comercial atual das principais moedas.
-* **Internacionalização Native (Intl):** Formatação monetária precisa conforme o padrão e cultura de cada moeda local.
-* **Mecanismo Anti-Flood (Debounce):** Controle de frequência de requisições no cliente para proteção contra *Rate Limiting*.
-* **Tratamento de Race Conditions:** Uso de `AbortController` para cancelar requisições assíncronas obsoletas em trocas rápidas de seleção.
-* **Layout Responsivo & UI Dark Mode:** Design acessível, fluido e adaptado para múltiplos tamanhos de tela.
+- **Conversão em Tempo Real:** Suporte a múltiplos pares de moedas (USD, EUR, GBP, BRL, BTC) consumindo a [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas).
+
+- **Painel de Cotações Rápidas:** Visão geral dinâmica do câmbio comercial atual das principais moedas.
+
+- **Internacionalização Native (Intl):** Formatação monetária precisa conforme o padrão e cultura de cada moeda local.
+
+- **Mecanismo Anti-Flood (Debounce):** Controle de frequência de requisições no cliente para proteção contra *Rate Limiting*.
+
+- **Tratamento de Race Conditions:** Uso de `AbortController` para cancelar requisições assíncronas obsoletas em trocas rápidas de seleção.
+
+- **Layout Responsivo & UI Dark Mode:** Design acessível, fluido e adaptado para múltiplos tamanhos de tela.
 
 ---
 
@@ -34,18 +43,18 @@
 Esta aplicação passou por uma refatoração focada em **Security by Design**, visando eliminar más práticas comuns em front-ends estáticos:
 
 1. **Segregação Estrita de Arquivos (Separation of Concerns):**
-   * Remoção total de scripts e estilos *inline* em conformidade com os padrões de arquitetura limpa.
-   * Organização estruturada do diretório de recursos estáticos (`assets/css` e `assets/js`).
+   - Remoção total de scripts e estilos *inline* em conformidade com os padrões de arquitetura limpa.
+   - Organização estruturada do diretório de recursos estáticos (`assets/css` e `assets/js`).
 
 2. **Content Security Policy (CSP) Endurecida:**
-   * Bloqueio do cabeçalho/meta tag contra `unsafe-inline` para a execução de JavaScript, mitigando riscos de **Cross-Site Scripting (XSS)**.
-   * Escopo explícito de conexões permitidas (`connect-src`) restrito ao endpoint seguro da API pública.
+   - Bloqueio do cabeçalho/meta tag contra `unsafe-inline` para a execução de JavaScript, mitigando riscos de **Cross-Site Scripting (XSS)**.
+   - Escopo explícito de conexões permitidas (`connect-src`) restrito ao endpoint seguro da API pública.
 
 3. **Prevenção contra Injeção de Código (DOM-based XSS):**
-   * Atualização do DOM utilizando exclusivamente `textContent` em vez de `innerHTML` nas saídas do conversor.
+   - Atualização do DOM utilizando exclusivamente `textContent` em vez de `innerHTML` nas saídas do conversor.
 
 4. **Sanitização de Inputs:**
-   * Validação rigorosa dos dados informados pelo usuário (conversão numérica, limite máximo e lista estrita de pares aceitos `ALLOWED_PAIRS`).
+   - Validação rigorosa dos dados informados pelo usuário (conversão numérica, limite máximo e lista estrita de pares aceitos `ALLOWED_PAIRS`).
 
 ---
 
@@ -66,8 +75,8 @@ Para manter a integridade e a postura de segurança do código em pipelines de C
 
 Para executar este projeto localmente, você não precisa de *runtimes* complexos (como Node.js ou Docker), apenas:
 
-* Um **navegador moderno** com suporte a ES6+ e `fetch` API (Google Chrome, Mozilla Firefox, Microsoft Edge, Brave).
-* Um servidor web simples (opcional, para testar a CSP corretamente sem restrições do protocolo `file://`).
+- Um **navegador moderno** com suporte a ES6+ e `fetch` API (Google Chrome, Mozilla Firefox, Microsoft Edge, Brave).
+- Um servidor web simples (opcional, para testar a CSP corretamente sem restrições do protocolo `file://`).
 
 ### 🔧 Como Executar Localmente
 
@@ -78,21 +87,17 @@ Para executar este projeto localmente, você não precisa de *runtimes* complexo
    cd secure-currency-converter
    ```
 
----
-
 2. **Inicie um servidor local estático (Opções recomendadas):**
 
-* Via extensão do VS Code: Utilize a extensão Live Server.
-* Via Python 3:
-    ```bash
-    python3 -m http.server 8000
-    ```
-* Via Node.js (npx):
-    ```bash
-    npx serve .
-    ```
-
----
+   - Via extensão do VS Code: Utilize a extensão Live Server.
+   - Via Python 3:
+      ```bash
+      python3 -m http.server 8000
+      ```
+   - Via Node.js (npx):
+      ```bash
+      npx serve .
+      ```
 
 3. **Acesse no seu navegador:**
 
@@ -122,4 +127,5 @@ Para executar este projeto localmente, você não precisa de *runtimes* complexo
 Este projeto está sob a licença [MIT](LICENSE).
 
 ---
+
 *Desenvolvido por **Marcelo Soares** | Especialista em Segurança da Informação e Computação Forense.*
